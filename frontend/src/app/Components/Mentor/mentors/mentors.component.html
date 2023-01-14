@@ -1,0 +1,44 @@
+<div class="row">
+
+  <div class="container-xl" style=" background-color: hsl(185, 75%, 39%)">
+
+    <div class="row justify-content-center" style="margin-top:2%;">
+      <div class="input-group ">
+        <input type="search" style="width: 25px;margin-left: 1.7%;;margin-bottom: 5%;" class="form-control rounded"
+          placeholder="Try Marketing ..." aria-label="Search" aria-describedby="search-addon" />
+        <button type="button" style="background-color:rgba(0,0,0.5);color:thistle;border: none;border-radius: 8px;height: 36%;" class="btn btn-primary">search</button>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" *ngFor=" let mentor of mentors">
+        <div class="card-one shadow p-3"
+          style="margin-left: 5%;margin-top:4%;margin-right: 5%;margin-bottom:7%;overflow: hidden;background-color: #fff; height: 30rem;border-radius: 10px;">
+          <h1 class="display-3">
+            <img class="img-fluid img-thumbnail rounded-circle" width="170px"
+              src="https://www.smarteyeapps.com/demo/creative-personal-website-template/assets/images/profile.jpg"
+              alt="Tutor Profile">
+          </h1>
+          <h4>
+            {{mentor.name}}
+          </h4>
+          <span>{{mentor.specializatio}}</span>
+
+          <hr class="my-4">
+          <ul class="row" style="list-style: none;display: inline;">
+            <li *ngFor="let skill of mentor.skills" style="list-style: none;display: inline;">
+
+              <button type="button" class="btn btn-info"
+                style="background-color: rgba(0,0,0,0.2);border:none;border-radius: 28px;margin-top: 1%;margin-bottom: 0.5%;">{{skill}}</button>
+          </ul>
+
+          <div class="d-flex justify-content-around">
+            <h3>&#x20B9;{{mentor.price}}<span style="font-size:14px;">/month</span></h3>
+    
+            <a class="btn btn-outline-dark" [routerLink]="'detail/'+mentor._id"><i class="fa fa-envelope"
+                aria-hidden="true"></i> View Profile</a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

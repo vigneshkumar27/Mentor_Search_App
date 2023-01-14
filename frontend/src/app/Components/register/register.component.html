@@ -1,0 +1,98 @@
+<section class="vh-100" style=" background : hsl(185, 75%, 39%) no-repeat center center/cover;height: 94vh;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-5 col-xl-5">
+        <div class="card text"
+          style="border-radius: 25px;   box-shadow:6px 6px 10px dimgray; background-color: #f9f9f9;">
+          <div class="card-body p-md-2 ">
+            <div class="row justify-content-center">
+              <div class="col-md-7 col-lg-6 col-xl-10 order-2 order-lg-1">
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: black;">Sign up</p>
+                <form class="mx-1 mx-md-4" [formGroup]="registerForm">
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" formControlName="username" placeholder="Username" id="form3Example1c"
+                        name="username" class="form-control" />
+
+                      <div *ngIf="registerForm.controls['username'].value !=null">
+
+                        <i class="fa fa-times-circle" style="color: red;"
+                          *ngIf="registerForm.controls['username'].value !=null && !registerForm.controls['username'].valid"></i>
+                        <span
+                          *ngIf="registerForm.controls['username'].value !=null && !registerForm.controls['username'].valid"
+                          style="color: red;">Enter a valid username</span>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" placeholder="Email Address" formControlName="email" id="form3Example3c"
+                        name="email" class="form-control" />
+                      <div *ngIf="registerForm.controls['email'].value !=null">
+                        <i class="fa fa-times-circle" style="color: red;"
+                          *ngIf="registerForm.controls['email'].value !=null && !registerForm.controls['email'].valid"></i>
+                        <span
+                          *ngIf="registerForm.controls['email'].value !=null && !registerForm.controls['email'].valid"
+                          style="color: red;">Enter a valid Email</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <!-- <i class="fas fa-lock fa-lg me-3 fa-fw"></i> -->
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" placeholder="Password" formControlName="password" id="form3Example4c"
+                        name="password" class="form-control" />
+                      <div *ngIf="registerForm.controls['password'].value !=null">
+
+
+                        <i class="fa fa-times-circle" style="color: red;"
+                          *ngIf="registerForm.controls['password'].value !=null && !registerForm.controls['password'].valid"></i>
+                        <span
+                          *ngIf="registerForm.controls['password'].value !=null && !registerForm.controls['password'].valid"
+                          style="color: red;">Enter a valid password</span>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" placeholder="Confirm Password" formControlName="copassword"
+                        id="form3Example4c" name="copasswor" class="form-control" />
+                      <div *ngIf="registerForm.controls['password'].value !=null">
+
+                        <i class="fa fa-times-circle" style="color: red;"
+                          *ngIf="registerForm.controls['copassword'].value !=null && !registerForm.controls['copassword'].valid"></i>
+                        <span
+                          *ngIf="registerForm.controls['copassword'].value !=null && !registerForm.controls['copassword'].valid"
+                          style="color: red;">Enter a valid password</span>
+                        <br>
+
+                        <i class="fa fa-times-circle" style="color: red;" *ngIf="!passwordmatchs"></i>
+                        <span *ngIf="!passwordmatchs" style="color: red;">Passwords donot match</span>
+                        <i class="fa fa-times-circle" style="color: red;" *ngIf="validmail"></i>
+                        <span *ngIf="validmail" style="color: red;">Mail already exists with another username</span>
+                      </div>
+
+
+                      <!-- <label class="form-label" style="color: black;" for="form3Example4c">Password</label> -->
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <a (click)="register()" class="btn btn-outline-dark" style="color: hsl(185,75%,39%);"> Register</a>
+                  </div>
+
+                </form>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

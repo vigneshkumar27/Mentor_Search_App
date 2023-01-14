@@ -1,0 +1,106 @@
+<div style="background-color:hsl(185, 75%, 39%);">
+  <h4 style="
+   text-align: center;
+   padding-top: 20px;
+   margin-bottom: 1%;
+  color:white;
+  ">
+    Apply
+  </h4>
+  <div style="
+   border: none;
+   border-radius: 10px;
+   padding: 2%;
+   width: 45%;
+   margin: auto;
+   margin-top: 20px;
+   background-color: #f9f9f9;
+ ">
+    <form class="border-primary border-5" [formGroup]="applicationform">
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">First Name</label>
+        <input class="form-control" id="exampleFormControlTextarea1" name="lastname" formControlName="firstname">
+        <span *ngIf="applicationform.controls['firstname'].value !=null && !applicationform.controls['firstname'].valid"
+          style="color: red;">Firstname should be at least 3 charectors long</span>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Last Name</label>
+        <input class="form-control" id="exampleFormControlTextarea1" name="lastname" formControlName="lastname">
+        <span *ngIf="applicationform.controls['lastname'].value !=null && !applicationform.controls['lastname'].valid"
+          style="color: red;">Lastname should be at least 1 charectors long</span>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+          name="email" formControlName="email" />
+        <span *ngIf="applicationform.controls['email'].value !=null && !applicationform.controls['email'].valid"
+          style="color: red;">Enter a valid Email</span>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Country</label>
+        <input class="form-control" id="exampleFormControlTextarea1" rows="1" name="country" formControlName="country">
+
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">About Yourself</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="about"
+          formControlName="about"></textarea>
+
+        <span *ngIf="applicationform.controls['about'].value !=null && !applicationform.controls['about'].valid"
+          style="color: red;">About should be atleast 10 charectors long</span>
+        <br>
+        <abbr title="" style="visibility: hidden;">Clickherecontinue </abbr> <abbr title=""></abbr>
+        <button class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle2"
+          [disabled]="!applicationform.valid" style="">Confirm Payment</button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalToggleLabel2" *ngIf="isloggedin">This is a dummy payment- check
+            the box to finish the payment</h1>
+          <input type="checkbox" [(ngModel)]="isChecked" *ngIf="isloggedin" (change)="change(isChecked?'A':'B')" />
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#paymentdone" data-bs-toggle="modal"
+            (click)="addpplytomentor()" *ngIf="isloggedin" [disabled]="flag">Confirm Mentor</button>
+          <button class="btn btn-primary" routerLink="/login" *ngIf="!isloggedin" data-bs-dismiss="modal">Login to
+            Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="paymentdone" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Congratulations You're now subscribed</h1>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <h3>View subscribed mentors here</h3>
+          <button class="btn btn-primary" data-bs-dismiss="modal" (click)="addpplytomentor()"
+            routerLink="/mymentors">Subscriptions</button>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

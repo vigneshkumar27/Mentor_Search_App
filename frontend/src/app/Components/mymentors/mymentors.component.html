@@ -1,0 +1,39 @@
+<div class="container-fluid" style="float: left;" *ngIf="mentors.length!=0 ; else cartEmpty">
+  <div class="col">
+
+    <div class="row">
+      <div class="container-xl">
+        <div class="row justify-content-center">
+  <div class="col-md-4" data-aos="fade-up" *ngFor=" let mentor of mentors">
+        <div class="card-one shadow p-3"
+          style="margin-left: 5%;margin-top:4%;margin-right: 5%;margin-bottom:7%;overflow: hidden;background-color: #fff; height: 30rem;border-radius: 10px;">
+          <h1 class="display-3">
+            <img class="img-fluid img-thumbnail rounded-circle" width="170px"
+              src="https://www.smarteyeapps.com/demo/creative-personal-website-template/assets/images/profile.jpg"
+              alt="Tutor Profile">
+          </h1>
+          <h4>
+            {{mentor.name}}
+          </h4>
+          <span>{{mentor.specializatio}}</span>
+
+          <hr class="my-4">
+          <ul class="row" style="list-style: none;display: inline;">
+            <li *ngFor="let skill of mentor.skills" style="list-style: none;display: inline;">
+
+              <button type="button" class="btn btn-info"
+                style="background-color: rgba(0,0,0,0.2);border:none;border-radius: 28px;margin-top: 1%;margin-bottom: 0.5%;">{{skill}}</button>
+          </ul>
+        </div>
+      </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<ng-template #cartEmpty>
+  <p>You have no assigned mentors</p>
+</ng-template>

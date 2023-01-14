@@ -1,0 +1,57 @@
+<section class="vh-100" style="background: hsl(185, 75%, 39%) no-repeat ;height: 94vh;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-5 col-xl-5">
+        <div class="card text"
+          style="border-radius: 12px; background-color: #f9f9f9;; box-shadow:6px 6px 10px dimgray;">
+          <div class="card-body p-md-2">
+            <div class="row justify-content-center">
+              <div class="col-md-7 col-lg-6 col-xl-10 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: black;">Log In</p>
+
+                <form class="mx-1 mx-md-4" [formGroup]="loginform">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" placeholder="Email Address" id="form3Example3c" formControlName="email"
+                        class="form-control" />
+                      <div *ngIf="loginform.controls['email'].value !=null">
+
+
+                        <i class="fa fa-times-circle" style="color: red;"
+                          *ngIf="loginform.controls['email'].value !=null && !loginform.controls['email'].valid"></i>
+                        <span *ngIf="loginform.controls['email'].value !=null && !loginform.controls['email'].valid"
+                          style="color: red;">Enter a valid Email</span>
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" placeholder="Password" id="form3Example5c" formControlName="password"
+                        class="form-control" />
+                      <div *ngIf="loginform.controls['password'].value !=null">
+                        <i class="fa fa-times-circle" style="color: red;"
+                          *ngIf="loginform.controls['password'].value !=null && !loginform.controls['password'].valid"></i>
+                        <span
+                          *ngIf="loginform.controls['password'].value !=null && !loginform.controls['password'].valid"
+                          style="color:red;">Password must be atleast 6 charectors long</span>
+                        <i class="fa fa-times-circle" style="color: red;" *ngIf="isinvalid"></i>
+                        <span *ngIf="isinvalid" style="color: red;">Invalid Email/Password</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button id="login" type="button" class="btn btn-lg" (click)="login()">Login</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

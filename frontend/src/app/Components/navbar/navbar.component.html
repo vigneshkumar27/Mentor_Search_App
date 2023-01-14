@@ -1,0 +1,60 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Fasthand&family=Montserrat:ital,wght@1,600&family=Raleway:ital,wght@0,800;1,800;1,900&display=swap"
+  rel="stylesheet">
+
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <div class="container-lg">
+    <div class="im">
+      <div><img class="img-logo" src="../../../assets/mentor iconn.jpg" routerLink="/home"></div>
+      <a class="navbar-brand" (click)="tocarouselExampleCaptions()" routerLink="/home"><span
+          style="letter-spacing:0.12rem;color:crimson; font-family: 'Raleway', sans-serif;">Mentor </span><span
+          style="letter-spacing:0.12rem;font-family: 'Raleway',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">Hunt</span></a>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="mentors">Our Mentors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login" *ngIf="!isloggedin">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="register" *ngIf="!isloggedin">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="mymentors" *ngIf="isloggedin">Subscriptions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="toservice()" routerLink="services">Services</a>
+        </li>
+      </ul>
+     
+      <div class="dropdown" *ngIf="isloggedin" id="info">
+        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span
+            style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">{{currentuser.name}}</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li
+            style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+            {{currentuser.email}}</li>
+          <li class="nav-item">
+            <button class="btn" aria-current="page" (click)="onlogout()">
+              <p
+                style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                Logout</p>
+            </button>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
